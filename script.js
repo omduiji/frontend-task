@@ -25,3 +25,29 @@ loginBtn.addEventListener('click', function (e) {
   loginBtn.classList.add('active')
   signInBtn.classList.remove('active')
 })
+
+function validateInputs(Inputs) {
+  Inputs.forEach(input => {
+  input.addEventListener('input', function (e) {
+    if (!input.validity.valid) showError(input)
+    if (input.validity.valid) {
+      spans.forEach(element => {
+        if (element.parentElement === input.parentElement) {
+          element.textContent = ''
+        }
+      })
+    }
+  })
+})
+}
+
+validateInputs(signInInputs)
+
+function showError(element) {
+    spans.forEach(span => {
+      if (span.parentElement === element.parentElement) {
+        span.classList.add('fade-in-left')
+        element.validity.patternMismatch ? span.textContent = element.getAttribute('data-validate-pattern') : span.textContent = element.getAttribute('data-validate-missing')
+      }
+    })
+}
