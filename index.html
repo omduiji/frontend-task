@@ -22,19 +22,19 @@
           <form action="https://private-b2e6827-robustatask.apiary-mock.com/auth/register" method="post" id="signInForm" novalidate>
             <div class="form-group">
               <label for="fullName"> Full Name <abbr title="This field is mandatory" aria-label="required">*</abbr></label>
-              <input type="text" id="fullName" name="name"/>
+              <input type="text" id="fullName" name="name" required pattern="^(\w\w+)\s(\w+)$" title="Full Name field should have spaces" tabindex="1" />
             </div>
             <div class="form-group">
               <label for="email">Email <abbr title="This field is mandatory" aria-label="required">*</abbr></label>
-              <input type="email" id="email" name="email"/>
+              <input type="email" id="email" name="email" required title="Enter a valid email format" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" tabindex="2"/>
             </div>
             <div class="form-group">
               <label for="username">Username <abbr title="This field is mandatory" aria-label="required">*</abbr></label>
-              <input type="text" id="username" name="username"/>
+              <input type="text" id="username" name="username" required tabindex="3" data-validate-missing="please enter your username here" pattern="[A-Za-z]{3,}" title="username must be more than 3 letters"/>
             </div>
             <div class="form-group">
               <label for="password">Password <abbr title="This field is mandatory" aria-label="required">*</abbr></label>
-              <input type="password" id="password" name="password" />
+              <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" tabindex="4"/>
             </div>
             <input type="submit"/>
           </form>
