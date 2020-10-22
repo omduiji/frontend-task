@@ -139,3 +139,7 @@ li a.active {
   background-color: var(--pink);
   color: white;
 }
+
+abbr {
+  text-decoration: none;
+}

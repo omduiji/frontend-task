@@ -19,21 +19,21 @@
       </header>
       <main class="main">
         <div id="signIn">
-          <form action="https://private-b2e6827-robustatask.apiary-mock.com/auth/register" method="post">
+          <form action="https://private-b2e6827-robustatask.apiary-mock.com/auth/register" method="post" id="signInForm" novalidate>
             <div class="form-group">
-              <label for="fullName"> Full Name </label>
+              <label for="fullName"> Full Name <abbr title="This field is mandatory" aria-label="required">*</abbr></label>
               <input type="text" id="fullName" name="name"/>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
+              <label for="email">Email <abbr title="This field is mandatory" aria-label="required">*</abbr></label>
               <input type="email" id="email" name="email"/>
             </div>
             <div class="form-group">
-              <label for="username">Username</label>
+              <label for="username">Username <abbr title="This field is mandatory" aria-label="required">*</abbr></label>
               <input type="text" id="username" name="username"/>
             </div>
             <div class="form-group">
-              <label for="password">Password</label>
+              <label for="password">Password <abbr title="This field is mandatory" aria-label="required">*</abbr></label>
               <input type="password" id="password" name="password" />
             </div>
             <input type="submit"/>
