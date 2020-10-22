@@ -51,3 +51,18 @@ function showError(element) {
       }
     })
 }
+
+signInForm.addEventListener('submit', async function (e) {
+  e.preventDefault()
+  signInInputs.forEach(input => {
+    if (!input.validity.valid) showError(input)
+  })
+  if(Array.from(signInInputs).find(input => !input.validity.valid)) return
+  container.classList.add('loader')
+  var res = await fetch(`${API_URL}${API_PATH_SIGNUP}`, {method: 'POST', body: new FormData(signInForm)})
+  var response = await res.json()
+  res.status === 200 ? alertSpan.classList.add('success') : alertSpan.classList.add('error')
+  container.classList.remove('loader')
+  alertSpan.classList.add('fade-in-left')
+  alertSpan.textContent = response.message
+})
