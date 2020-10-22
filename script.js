@@ -2,12 +2,33 @@ const API_URL = 'https://private-b2e6827-robustatask.apiary-mock.com';
 const API_PATH_SIGNUP = '/auth/register';
 const API_PATH_SIGNIN = '/auth/login';
 
-
-const signInForm = document.querySelector('#signInForm')
-const loginForm = document.querySelector('#loginForm')
 const signInBtn = document.querySelector('[data-nav="signIn"]')
 const loginBtn = document.querySelector('[data-nav="login"]')
+const signInForm = document.querySelector('#signInForm')
+const loginForm = document.querySelector('#loginForm')
+const spans = document.querySelectorAll('[data-validate]')
+const signInInputs = document.querySelectorAll('#signIn input')
+const loginInputs = document.querySelectorAll('#logIn input')
+const alertSpan = document.querySelector('[data-response-alert="server-response"]')
+const container = document.querySelector('.container')
 
+function validateInputs(Inputs) {
+  Inputs.forEach(input => {
+  input.addEventListener('input', function (e) {
+    if (!input.validity.valid) showError(input)
+    if (input.validity.valid) {
+      spans.forEach(element => {
+        if (element.parentElement === input.parentElement) {
+          element.textContent = ''
+        }
+      })
+    }
+  })
+})
+}
+
+validateInputs(signInInputs)
+// validateInputs(loginInputs)
 
 signInBtn.addEventListener('click', function (e) {
   e.preventDefault()
@@ -26,22 +47,7 @@ loginBtn.addEventListener('click', function (e) {
   signInBtn.classList.remove('active')
 })
 
-function validateInputs(Inputs) {
-  Inputs.forEach(input => {
-  input.addEventListener('input', function (e) {
-    if (!input.validity.valid) showError(input)
-    if (input.validity.valid) {
-      spans.forEach(element => {
-        if (element.parentElement === input.parentElement) {
-          element.textContent = ''
-        }
-      })
-    }
-  })
-})
-}
 
-validateInputs(signInInputs)
 
 function showError(element) {
     spans.forEach(span => {
@@ -51,6 +57,9 @@ function showError(element) {
       }
     })
 }
+
+
+
 
 function submitForm(form, inputs, path) {
   form.addEventListener('submit', async function (e) {
