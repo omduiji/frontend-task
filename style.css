@@ -37,6 +37,12 @@ body {
 
   /* padding: .75em .5em; */
 }
+
+@media only screen and (max-width: 950px) {
+  .formWrapper {
+    padding: .75em .5em;
+  }
+}
 .header {
   margin: 3em 2em;
 }
@@ -284,5 +290,25 @@ abbr {
 
   100% {
     transform: translate(-50%, -50%) rotate(1080deg) scale(1);
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .formWrapper {
+    padding: .75em .5em;
+  }
+
+  .header {
+    margin: 2em 2em
+  }
+
+  form {
+    margin: .8em 1em;
+  }
+
+  .loader:after {
+    width: 50px;
+    height: 50px;
+    border-width: 10px;
   }
 }
