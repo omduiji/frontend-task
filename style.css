@@ -43,6 +43,7 @@ body {
     padding: .75em .5em;
   }
 }
+
 .header {
   margin: 3em 2em;
 }
@@ -100,6 +101,25 @@ form {
   text-align: left;
   display: block;
 }
+
+.response-alert {
+  padding: 0 3em;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.error {
+  color: lightcoral;
+}
+
+.success {
+  color: powderblue;
+}
+
+abbr {
+  text-decoration: none;
+}
+
 input {
   width: 100%;
   padding: 0.6em;
@@ -146,9 +166,11 @@ li a.active {
   color: white;
 }
 
-abbr {
-  text-decoration: none;
+.hide {
+  display: none;
 }
+
+
 
 .fade-in-right {
   -webkit-animation: fade-in-right 500ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -250,6 +272,7 @@ abbr {
   }
 }
 
+
 .loader {
   /* width: $button-width/2.2;
   height: $button-width/2.2; */
@@ -292,6 +315,9 @@ abbr {
     transform: translate(-50%, -50%) rotate(1080deg) scale(1);
   }
 }
+
+
+
 
 @media only screen and (max-width: 950px) {
   .formWrapper {
