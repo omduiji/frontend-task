@@ -66,3 +66,18 @@ signInForm.addEventListener('submit', async function (e) {
   alertSpan.classList.add('fade-in-left')
   alertSpan.textContent = response.message
 })
+
+loginForm.addEventListener('submit', async function (e) {
+  e.preventDefault()
+  loginInputs.forEach(input => {
+    if (!input.validity.valid) showError(input)
+  })
+  if(Array.from(loginInputs).find(input => !input.validity.valid)) return
+  container.classList.add('loader')
+  var res = await fetch(`${API_URL}${API_PATH_SIGNIN}`, {method: 'POST', body: new FormData(loginForm)})
+  var response = await res.json()
+  res.status === 200 ? alertSpan.classList.add('success') : alertSpan.classList.add('error')
+  container.classList.remove('loader')
+  alertSpan.classList.add('fade-in-left')
+  alertSpan.textContent = response.message
+})
