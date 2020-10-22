@@ -243,3 +243,46 @@ abbr {
     opacity: 0;
   }
 }
+
+.loader {
+  /* width: $button-width/2.2;
+  height: $button-width/2.2; */
+  min-width: 0;
+  border-radius: 50%;
+  color: transparent;
+}
+
+.loader:after {
+  position: absolute;
+  content: '';
+  width: 100px;
+  height: 100px;
+  border: 20px solid var(--pink);
+  border-radius: 50%;
+  border-left-color: white;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  /* animation: rotate-center 0.6s ease-in-out infinite both; */
+  animation: spin ease-in 2.5s forwards;
+  animation-name: spin;
+  -webkit-animation-name: spin;
+  transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  animation-duration: 2.5s;
+  -webkit-animation-duration: 2.5s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(1080deg) scale(1);
+  }
+}
